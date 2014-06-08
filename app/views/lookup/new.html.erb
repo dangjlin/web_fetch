@@ -1,0 +1,14 @@
+
+<h1> this is the new lookup page </h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@lookup_item) do |f| %>
+
+      <%= f.label :apply_no %>
+      <%= f.text_field :apply_no %>
+
+      <%= f.submit "Go to Find it !! ", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
