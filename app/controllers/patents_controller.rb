@@ -13,7 +13,7 @@ class PatentsController < ApplicationController
 
 	def create
 		@patent = Patent.new(patent_params)
-		return_patent_scope(patent_params[:apply_no])
+		return_patent_scope(patent_params[:apply_no],11)
 		@patent.patent_scope = @result
 
 		if @patent.save
@@ -22,7 +22,6 @@ class PatentsController < ApplicationController
 		else
 			render 'new'
 		end
-
 
 	end
 
@@ -34,15 +33,29 @@ class PatentsController < ApplicationController
 	end
 
 	def edit
+
+		@patent = Patent.find(params[:id])
+		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
+
 	end 
 
 	def update
+
+		@patent = Patent.find(params[:id])
+		return_patent_scope(params[:apply_no],params[:new_fetch_no])
+		
+		if @patent.update_attributes(patent_scope: @result)
+		redirect_to @patent
+		else 
+			puts "error occur"
+		end
+
 	end
 
 	def delete
 	end
 
-  	def return_patent_scope(apply_key)
+  	def return_patent_scope(apply_key,fetch_key)
 		require 'rubygems'
 		require 'nokogiri'
 		#require 'open-uri'
@@ -77,7 +90,7 @@ class PatentsController < ApplicationController
 
 
 		page_html = Nokogiri::HTML.parse(result_page2.parser.to_html)
-		@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[11]/td[2]").to_s
+		@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
 		end
 
 

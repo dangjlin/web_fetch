@@ -1,6 +1,7 @@
 
 <h1> this is the new lookup page </h1> <br><br>
-<li><%= link_to "繼續查下一筆", new_patent_path %></li>
+<li><%= link_to "繼續查下一筆", new_patent_path %></li>   
+<li><%= link_to "編輯這一筆查詢，調整fetch的格子數" , edit_patent_path %></li> 
 <table>
 	<tr> 
 		<td> 申請號 </td> <td><%= @patent.apply_no %></td>

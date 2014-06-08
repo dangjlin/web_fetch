@@ -1,0 +1,15 @@
+<h1>Update your fetch 的格子數</h1>
+
+目前正常的專利範圍是在第 11 格 <br> 
+如果看到抓回來的資料是在專利範圍的上一格，請在下方格子輸入  12  按下送出重新抓取一次  <br>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag patent_path(@patent), method: "patch" do %>
+	<% puts "New column NO:"  %> 
+      
+      <%= text_field_tag "apply_no", @patent.apply_no %>
+      <%= text_field_tag "new_fetch_no" %> 
+    
+      <%= submit_tag "送出更新", class: "btn btn-large btn-primary" %>
+    <% end %>
