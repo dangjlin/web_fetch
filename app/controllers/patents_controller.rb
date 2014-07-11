@@ -63,7 +63,9 @@ class PatentsController < ApplicationController
 		require 'mechanize'
 
 		agent = Mechanize.new
-		page = agent.get("http://210.69.13.199/tipotwc/tipotwkm")
+		page = agent.get("http://210.69.13.40/tipotwoc/tipotwkm")
+		#page = agent.get("http://twpat.tipo.gov.tw/tipotwoc/tipotwkm")
+
 
 		page = agent.page.link_with(:text => "專利檢索").click
 
@@ -79,11 +81,11 @@ class PatentsController < ApplicationController
 		#puts apply_key
 
 		#按下查詢的按鈕
-		result_page = form.submit(form.button_with(:name => "_IMG_檢索^s"))
+		result_page = form.submit(form.button_with(:name => "_IMG_檢索@s"))
 
 		#按下“專利範圍”的連結
 
-		if !(result_page.links_with(:text => "")[3].href.match(/^\/tipotwc\/tipotwkm/) )
+		if !(result_page.links_with(:text => "")[3].href.match(/^http:\/\/twpat/) )
 			@result = "查無此專利案"
 		else
 		result_page2 = result_page.links_with(:text => "")[3].click
