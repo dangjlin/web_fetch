@@ -36,14 +36,15 @@ class PatentsController < ApplicationController
 
 	def edit
 
-		@patent = Patent.find(params[:id])
+		#@patent = Patent.find(params[:id])
+		@patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
 
 	end 
 
 	def update
 
-		@patent = Patent.find(params[:id])
+		@patent = Patent.friendly.find(params[:id])
 		return_patent_scope(params[:apply_no],params[:new_fetch_no])
 		
 		if @patent.update_attributes(patent_scope: @result)
