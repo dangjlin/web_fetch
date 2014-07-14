@@ -1,6 +1,6 @@
 
-<h1> this is the new lookup page </h1> <br><br>
-<li><%= link_to "繼續查下一筆", new_patent_path %></li>   
+<h1> this is the detail lookup page </h1> <br><br>
+<li><%= link_to "繼續查下一筆", new_patent_path %></li>   <li><%= link_to "去歷史查詢列表", patents_path %> </li>
 <li><%= link_to "編輯這一筆查詢，調整fetch的格子數" , edit_patent_path %></li> 
 <table>
 	<tr> 
@@ -18,5 +18,18 @@
 </li>
 <% end %>
 
+<hr>
+<table class='table-bordered'>
+<tr>
+	<td> 第一欄位 </td>
+	<td> sub 專利範圍 </td>
+</tr>
+	<% @patent_scopy_by_item.each do |item| %>
+	<tr class="<%= column_color(item) %>">
+		<td class='<%= column_color(item) %>'><font color='<%= column_color(item) %>'><%= left_slice(item)  %></td>
+		<td><%= right_slice(item) %></td>
+	</tr>
+	<% end %>
+</table>
 
 <ul>
