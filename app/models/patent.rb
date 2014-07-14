@@ -1,6 +1,7 @@
 class Patent < ActiveRecord::Base
 
-validates(:apply_no, presence: true)
-
+	extend FriendlyId
+	friendly_id :apply_no, use: :slugged 
+	validates(:apply_no, presence: true)
 
 end

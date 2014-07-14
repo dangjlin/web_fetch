@@ -1,0 +1,23 @@
+<h2>查詢記錄 </h2>
+
+<table class="table table-bpatented">
+  <thead>
+    <tr>
+      <th>No. </th>
+      <th>申請號</th>
+      <th>生成時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patents.each_with_index do |patent, i| %>
+    <tr>
+       <td><%= i+1  %></td>
+       <td><%= link_to(patent.apply_no, patent) %> </td>
+       <td><%= patent.created_at %> </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+

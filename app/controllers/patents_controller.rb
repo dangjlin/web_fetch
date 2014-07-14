@@ -2,7 +2,7 @@ class PatentsController < ApplicationController
 
 
 	def index 
-		@patent = Patent.all 
+		@patents = Patent.all 
 	end 
 
 	def new
@@ -27,7 +27,9 @@ class PatentsController < ApplicationController
 
 	def show
 
-		@patent = Patent.find(params[:id])
+	#	@patent = Patent.find(params[:id])
+	#   use friendly_id as slugged title 
+		@patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
 
 	end

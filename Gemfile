@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails_12factor'
 
+gem 'friendly_id'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
