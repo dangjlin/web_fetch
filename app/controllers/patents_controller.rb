@@ -13,7 +13,7 @@ class PatentsController < ApplicationController
 
 	def create
 		@patent = Patent.new(patent_params)
-		return_patent_scope(patent_params[:apply_no],11)
+		return_patent_scope(patent_params[:apply_no],12)
 		@patent.patent_scope = @result
 
 		if @patent.save
