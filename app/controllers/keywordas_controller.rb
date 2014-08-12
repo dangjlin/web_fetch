@@ -26,15 +26,23 @@ class KeywordasController < ApplicationController
   end
  
   def edit
+    @keyworda = Keyworda.find(params[:id])
   end
   
   def update
+    @keyworda = Keyworda.find(params[:id])
+
+    if @keyworda.update_attributes(priority: params[:keyworda][:priority])
+    redirect_to splitwords_path
+    else 
+      puts "error occur"
+    end
   end
   
   def destroy
     @keyworda = Keyworda.find(params[:id])
     @keyworda.destroy
-    redirect_to spirtwords_path
+    redirect_to splitwords_path
    
   end
   

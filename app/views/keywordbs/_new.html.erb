@@ -2,6 +2,7 @@
 
     <%= f.label :keywordb  %>
     <%= f.text_field :keywordb %>
-
-      <%= f.submit " 增加第二步斷詞 ", class: "btn btn-large btn-primary" %>
+    <%= f.label :priority %>
+    <%= f.number_field :priority %>
+    <%= f.submit " 增加第二步斷詞 ", class: "btn btn-large btn-primary" %>
     <% end %>

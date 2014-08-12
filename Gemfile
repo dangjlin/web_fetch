@@ -11,7 +11,7 @@ gem 'bootstrap-sass', '>=2.3.2.0'
 gem 'bcrypt-ruby', '>=3.0.1'
 
 # use web crawler nokogiri 
-gem 'nokogiri'
+gem 'nokogiri', '1.6.3.1'
 gem 'mechanize'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
