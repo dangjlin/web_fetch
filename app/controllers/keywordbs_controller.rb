@@ -26,15 +26,23 @@ class KeywordbsController < ApplicationController
   end
  
   def edit
+    @keywordb = Keywordb.find(params[:id])
   end
   
   def update
+    @keywordb = Keywordb.find(params[:id])
+
+    if @keywordb.update_attributes(priority: params[:keywordb][:priority])
+    redirect_to splitwords_path
+    else 
+      puts "error occur"
+    end
   end
-  
+    
   def destroy
     @keywordb = Keywordb.find(params[:id])
     @keywordb.destroy
-    redirect_to spirtwords_path
+    redirect_to spiltwords_path
    
   end
   

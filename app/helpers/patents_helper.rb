@@ -1,45 +1,57 @@
 module PatentsHelper
 	def right_slice(item)
-   # for i in 0..1
-    if ( item.index("#{@first_key[1]}") == 3 ) || ( item.index("#{@first_key[1]}") == 4 ) 
-     #   for j in 0..(@second_key.size-1) 
-          # 計算要從哪一個字右邊開始截取
-          if (item.index('其中')) != nil
-            @second_scope= item.slice( (item.index('其中').to_i+2)..(item.size) )
-          elsif (item.index('包含')) != nil
-            @second_scope= item.slice( (item.index('包含').to_i+2)..(item.size) )
-          end   
-      #  end 
+    @first_key.each do |match_key| 
+      if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
+          @second_key.each do |match_key2|
+            if (item.index("#{match_key2}")) != nil
+            # 計算要從斷詞開始往右邊取到最後停止 
+              @second_scope= item.slice( (item.index("#{match_key2}").to_i+2)..(item.size) )
+            break
+            end
+          #  if (item.index('其中')) != nil
+          #    @second_scope= item.slice( (item.index('其中').to_i+2)..(item.size) )
+          #  elsif (item.index('包含')) != nil
+          #    @second_scope= item.slice( (item.index('包含').to_i+2)..(item.size) )
+          #  end
+          end
+      break
       else
          @second_scope= ""
-       # @second_scope= item.index("#{@first_key[1]}")
-      end 
-  
-  #  break
-  #  end 
-      
+      end   
+    end 
+  #下面return這一行很重要... 沒有這一行的話,這個 method 會回傳 @first_key 的內容 這是因為 loop 的關係  
+  #ruby default 上 method 會回傳最後一個變數回去給呼叫的人
+  return @second_scope    
   end
 
   def left_slice(item)
- #     if ( item.index('如申請專利範圍') == 3 ) || ( item.index('如申請專利範圍') == 4 ) 
-      if ( item.index('如申請') == 3 ) || ( item.index('如申請') == 4 ) 
-          # 計算要從第一個字往右邊取到何時停止 
-          if (item.index('其中')) != nil 
-            @first_scope= item.slice( 1..(item.index('其中').to_i+1) ) 
-          elsif (item.index('包含')) != nil 
-            @first_scope= item.slice( 1..(item.index('包含').to_i+1) )
+    @first_key.each do |match_key| 
+      if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
+          @second_key.each do |match_key2|
+            if (item.index("#{match_key2}")) != nil    
+            # 計算要從第一個字往右邊取到何時停止 
+              @first_scope= item.slice( 1..(item.index("#{match_key2}").to_i+1) ) 
+            break
+            end
           end
+      break
       else
           @first_scope= item
       end 
+    end
+  return @first_scope   
   end
 
   def column_color(item)
-    if ( item.index('如申請') == 3 ) || ( item.index('如申請') == 4 ) 
-      ""
-    else
-      "red" 
-    end
+    @first_key.each do |match_key| 
+      if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
+       @color = ""
+      break
+      else
+       @color = "red" 
+      end
+    end 
+  return @color
   end
 
 end

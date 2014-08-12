@@ -31,9 +31,8 @@ class PatentsController < ApplicationController
 	#   use friendly_id as slugged title 
 		@patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
-    @first_key = Keyworda.where.not('keyworda' => nil).pluck(:keyworda)
-    @second_key = Keywordb.where.not('keywordb' => nil).pluck(:keywordb)
-    @test = Splitword.where.not('keyworda' => nil).pluck(:keywordb)
+    @first_key = Keyworda.where.not('keyworda' => nil).order('priority asc').pluck(:keyworda)
+    @second_key = Keywordb.where.not('keywordb' => nil).order('priority asc').pluck(:keywordb)
     
 	end
 

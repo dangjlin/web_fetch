@@ -1,5 +1,7 @@
 <%= form_for(keyworda, url: keywordas_path) do |f| %>
     <%= f.label :keyworda  %>
     <%= f.text_field :keyworda %>
+    <%= f.label :priority %>
+    <%= f.number_field :priority %>
     <%= f.submit " 增加第一步斷詞 ", class: "btn btn-large btn-primary" %>
 <% end %>

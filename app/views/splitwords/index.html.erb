@@ -7,6 +7,7 @@
     <tr>
       <th>No. </th>
       <th>keyworda</th>
+      <th>優先順序</th>
       <th>調整 </th> 
     </tr>
   </thead>
@@ -15,7 +16,8 @@
     <tr>
        <td><%= i+1  %></td>
       <td><%=  keyword.keyworda %> </td>
-      <td><%= link_to "delete!" , keyworda_path(keyword.id), :method => :delete  %> 
+      <td><%=  keyword.priority %> <%= link_to "調整" , edit_keyworda_path(keyword.id) %> </td>
+      <td><%= link_to "delete!" , keyworda_path(keyword.id), :method => :delete  %></td> 
     </tr>
     <% end %>
   </tbody>
@@ -27,6 +29,7 @@
     <tr>
       <th>No. </th>
       <th>keywordb</th>
+      <th>優先順序</th>
       <th>調整 </th> 
     </tr>
   </thead>
@@ -35,7 +38,8 @@
     <tr>
        <td><%= i+1  %></td>
       <td><%=  keyword.keywordb %> </td>
-      <td><%= link_to "delete!" , keywordb_path(keyword.id), :method => :delete  %> 
+      <td><%=  keyword.priority %> <%= link_to "調整" , edit_keywordb_path(keyword.id) %> </td>
+      <td><%= link_to "delete!" , keywordb_path(keyword.id), :method => :delete  %></td>
     </tr>
     <% end %>
   </tbody>
