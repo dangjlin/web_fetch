@@ -49,7 +49,7 @@ class KeywordbsController < ApplicationController
   private
   
   def keywordb_params
-    params.require(:keywordb).permit(:keywordb)
+    params.require(:keywordb).permit(:keywordb, :priority)
   
   end
   
