@@ -7,6 +7,10 @@ PatentLookup::Application.routes.draw do
 
   resources :lookup
   resources :patents
+  resources :splitwords
+  resources :keywordas
+  resources :keywordbs
+  
   
 
   # The priority is based upon order of creation: first created -> highest priority.

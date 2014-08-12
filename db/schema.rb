@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714084142) do
+ActiveRecord::Schema.define(version: 20140812084352) do
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -26,12 +26,33 @@ ActiveRecord::Schema.define(version: 20140714084142) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "keywordas", force: true do |t|
+    t.string   "keyworda"
+    t.integer  "priority"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "keywordbs", force: true do |t|
+    t.string   "keywordb"
+    t.integer  "priority"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patents", force: true do |t|
     t.string   "apply_no"
     t.text     "patent_scope"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+  end
+
+  create_table "splitwords", force: true do |t|
+    t.string   "keyworda"
+    t.string   "keywordb"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

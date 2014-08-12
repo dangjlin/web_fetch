@@ -1,0 +1,2 @@
+module KeywordbsHelper
+end
