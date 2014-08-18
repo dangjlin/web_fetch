@@ -5,7 +5,7 @@ module PatentsHelper
           @second_key.each do |match_key2|
             if (item.index("#{match_key2}")) != nil
             # 計算要從斷詞開始往右邊取到最後停止 
-              @second_scope= item.slice( (item.index("#{match_key2}").to_i+2)..(item.size) )
+              @second_scope= item.slice( (item.index("#{match_key2}").to_i+match_key2.length)..(item.size) )
             break
             end
           #  if (item.index('其中')) != nil
@@ -30,7 +30,7 @@ module PatentsHelper
           @second_key.each do |match_key2|
             if (item.index("#{match_key2}")) != nil    
             # 計算要從第一個字往右邊取到何時停止 
-              @first_scope= item.slice( 1..(item.index("#{match_key2}").to_i+1) ) 
+              @first_scope= item.slice( 1..(item.index("#{match_key2}").to_i+(match_key2.length-1) ) )
             break
             end
           end
