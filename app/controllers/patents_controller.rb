@@ -2,7 +2,7 @@ class PatentsController < ApplicationController
 
 
 	def index 
-		@patents = Patent.all 
+    @patents = Patent.all.order("created_at DESC")
 	end 
 
 	def new
