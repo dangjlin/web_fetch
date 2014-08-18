@@ -1,8 +1,8 @@
 class SplitwordsController < ApplicationController
   
   def index
-    @keyworda = Keyworda.where.not('keyworda' => nil)
-    @keywordb = Keywordb.where.not('keywordb' => nil)
+    @keyworda = Keyworda.where.not('keyworda' => nil).order('priority asc')
+    @keywordb = Keywordb.where.not('keywordb' => nil).order('priority asc')
   end
   
   def show 
