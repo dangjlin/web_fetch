@@ -8,11 +8,6 @@ module PatentsHelper
               @second_scope= item.slice( (item.index("#{match_key2}").to_i+match_key2.length)..(item.size) )
             break
             end
-          #  if (item.index('其中')) != nil
-          #    @second_scope= item.slice( (item.index('其中').to_i+2)..(item.size) )
-          #  elsif (item.index('包含')) != nil
-          #    @second_scope= item.slice( (item.index('包含').to_i+2)..(item.size) )
-          #  end
           end
       break
       else
@@ -53,5 +48,46 @@ module PatentsHelper
     end 
   return @color
   end
+
+  def relationship
+    
+    h = Hash.new { |hash,key| hash[:key] =[]}
+    independent = Array.new
+    b = Array.new
+    c = Array.new
+
+    @patent_scopy_by_item.each do |item|
+      b.clear
+      c.clear
+ #     @first_key.each do |match_key| 
+ #       if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
+
+        # 用來抓出從屬項的兩組數字，第一個是自身編號，第二個其繼承的獨立項編號
+ #       c = item.scan(/\d+/)
+ #       h[:"#{c[1]}"] << [c[0]]       
+ #     break
+ #       else
+          if (item.index("<td class=\"rectd2\">")) == 0 
+            b = item.slice(19..item.length).scan(/\d+/)
+          else
+            b = item.scan(/\d+/)
+          end
+
+          # 開始增加獨立項的編號作為 hash 的 key 值 
+            h[:"#{b[0]}"] = %w()
+            if b.size == 2 
+              h[:"#{b[1]}"] << b[0]
+            end
+
+            independent << b[0]
+  #      end 
+  #    end
+      independent.uniq
+            
+    end
+  binding.pry  
+  end
+
+
 
 end
