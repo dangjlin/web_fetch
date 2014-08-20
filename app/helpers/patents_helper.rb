@@ -51,7 +51,7 @@ module PatentsHelper
 
   def relationship
     
-    h = Hash.new { |hash,key| hash[:key] =[]}
+    @h = Hash.new { |hash,key| hash[:key] =[]}
     independent = Array.new
     b = Array.new
     c = Array.new
@@ -74,18 +74,18 @@ module PatentsHelper
           end
 
           # 開始增加獨立項的編號作為 hash 的 key 值 
-            h[:"#{b[0]}"] = %w()
-            if b.size == 2 
-              h[:"#{b[1]}"] << b[0]
+            @h[:"#{b[0]}"] = %w()
+            if b.size >= 2 
+              @h[:"#{b[1]}"] << b[0]
             end
-
+           #binding.pry  
             independent << b[0]
   #      end 
   #    end
       independent.uniq
-            
+  # Nested set model          
     end
-  binding.pry  
+#  binding.pry  
   end
 
 
