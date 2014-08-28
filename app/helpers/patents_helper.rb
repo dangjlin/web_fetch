@@ -1,11 +1,16 @@
 module PatentsHelper
+ 
 	def right_slice(item)
+   # @patent_scopy_by_item_right = Array.new 
+    @second_scope = "" 
     @first_key.each do |match_key| 
       if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
           @second_key.each do |match_key2|
             if (item.index("#{match_key2}")) != nil
             # 計算要從斷詞開始往右邊取到最後停止 
               @second_scope= item.slice( (item.index("#{match_key2}").to_i+match_key2.length)..(item.size) )
+          
+        
             break
             else
               @seconde_scope = "此項目為附屬項，但第二步關鍵字比對不到"
@@ -15,10 +20,15 @@ module PatentsHelper
       else
          @second_scope= ""
       end   
-    end 
+
+  end 
   #下面return這一行很重要... 沒有這一行的話,這個 method 會回傳 @first_key 的內容 這是因為 loop 的關係  
   #ruby default 上 method 會回傳最後一個變數回去給呼叫的人
-  return @second_scope    
+  
+        @patent_scopy_by_item_right << @second_scope 
+        @repeat_no << (@patent_scopy_by_item_right.index("#{@second_scope}")+1)
+     return @second_scope  
+    #  binding.pry
   end
 
   def left_slice(item)
@@ -117,20 +127,21 @@ def relationship_parent
             d = item.scan(/\d+/)
           end
 
-          # 開始增加獨立項的編號作為 hash 的 key 值 
+          # 判斷每一個子項目的母項目編號，寫入陣列當中
                 @parent[:"#{d[0]}"] = %w()
-              if d.size >= 2 
+            if d.size >= 2 
                 @parent[:"#{d[0]}"] << d[1]
             end
            #binding.pry  
-           # independent << b[0]
-  #      end 
-  #    end
-     # independent.uniq
-  # Nested set model          
-    end
+
+         
+         
+#      end  if ending point
+#    end second each loop ending point
+         
+      end  # each loop ending point
 #  binding.pry  
-  end
+  end  # method ending point
 
 
-end
+end   # helper module ending point

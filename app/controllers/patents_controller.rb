@@ -33,7 +33,8 @@ class PatentsController < ApplicationController
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
     @first_key = Keyworda.where.not('keyworda' => nil).order('priority asc').pluck(:keyworda)
     @second_key = Keywordb.where.not('keywordb' => nil).order('priority asc').pluck(:keywordb)
-    
+    @patent_scopy_by_item_right = Array.new 
+    @repeat_no = Array.new(1,"No.0")
 	end
 
 	def edit
