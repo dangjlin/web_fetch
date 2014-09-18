@@ -8,9 +8,12 @@ module PatentsHelper
           @second_key.each do |match_key2|
             if (item.index("#{match_key2}")) != nil
             # 計算要從斷詞開始往右邊取到最後停止 
-              @second_scope= item.slice( (item.index("#{match_key2}").to_i+match_key2.length)..(item.size) )
-          
-        
+              temp_right = item.slice( (item.index("#{match_key2}").to_i+match_key2.length)..(item.size) )
+              if temp_right.match("</td>") != nil
+                @second_scope = temp_right.slice(0..(temp_right.length-6))
+              else
+                @second_scope = temp_right
+              end   
             break
             else
               @seconde_scope = "此項目為附屬項，但第二步關鍵字比對不到"
@@ -21,13 +24,10 @@ module PatentsHelper
          @second_scope= ""
       end   
 
-  end 
-  #下面return這一行很重要... 沒有這一行的話,這個 method 會回傳 @first_key 的內容 這是因為 loop 的關係  
-  #ruby default 上 method 會回傳最後一個變數回去給呼叫的人
-  
+    end  
         @patent_scopy_by_item_right << @second_scope 
         @repeat_no << (@patent_scopy_by_item_right.index("#{@second_scope}")+1)
-     return @second_scope  
+  return @second_scope  
     #  binding.pry
   end
 
@@ -45,7 +45,21 @@ module PatentsHelper
           end
       break
       else
-          @first_scope= item
+          #@first_scope= item
+          if (item.index("<td class=\"rectd2\">")) == 0 
+            temp_left = item.slice(19..item.length)
+              if temp_left.match("</td>") != nil
+                @first_scope = temp_left.slice(0..(temp_left.length-6))
+              else
+                @first_scope = temp_left
+              end
+          else
+              if item.match("</td>") != nil
+                @first_scope = item.slice(0..(item.length-6))
+              else
+                @first_scope = item
+              end            
+          end 
       end 
     #  binding.pry
     end
