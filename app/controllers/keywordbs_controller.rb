@@ -42,7 +42,7 @@ class KeywordbsController < ApplicationController
   def destroy
     @keywordb = Keywordb.find(params[:id])
     if  @keywordb.destroy
-    redirect_to spiltwords_path
+    redirect_to splitwords_path              
     else
       puts "error occur"
     end

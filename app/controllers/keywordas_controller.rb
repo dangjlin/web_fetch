@@ -32,7 +32,7 @@ class KeywordasController < ApplicationController
   def update
     @keyworda = Keyworda.find(params[:id])
 
-    if @keyworda.update_attributes(priority: params[:keyworda][:priority])
+    if @keyworda.update_attributes(keyworda: params[:keyworda][:keyworda], priority: params[:keyworda][:priority])
     redirect_to splitwords_path
     else 
       puts "error occur"
