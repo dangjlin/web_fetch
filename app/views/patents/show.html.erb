@@ -75,9 +75,11 @@
     </tr>
     <tr>
       <% @repeat_no.from(1).each_with_index do |repeat_no , index| %> 
+      <% if index+1 !=repeat_no && repeat_no != 1 %> 
       <td><%= index+1 %> </td>
-      <td><%= repeat_no if index+1 !=repeat_no && repeat_no != 1 %></td>
+      <td><%= repeat_no %></td>
        </tr> 
+       <% end %>
       <% end %> 
   </table> 
 </div>
