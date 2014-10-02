@@ -95,10 +95,15 @@ class PatentsController < ApplicationController
 			@result = "查無此專利案"
 		else
 		result_page2 = result_page.links_with(:text => "")[3].click
-
-
 		page_html = Nokogiri::HTML.parse(result_page2.parser.to_html)
 		@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
+      #binding.pry
+      if @result == "" 
+        new_fetch_key = fetch_key-1
+        @result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{new_fetch_key}]/td[2]").to_s
+      else
+      end
+      
 		end
 
 
