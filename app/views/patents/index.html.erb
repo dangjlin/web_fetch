@@ -14,6 +14,7 @@
        <td><%= i+1  %></td>
        <td><%= link_to(patent.apply_no, patent) %> </td>
        <td><%= patent.created_at %> </td>
+      <td><%= link_to( "句子寫進資料庫", slice_sentence_patent_path(patent)) %> </td>
     </tr>
     <% end %>
 

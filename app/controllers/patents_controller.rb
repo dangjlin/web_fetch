@@ -24,6 +24,28 @@ class PatentsController < ApplicationController
 		end
 
 	end
+  
+  def slice_sentence
+    @patent = Patent.friendly.find(params[:id])
+		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
+    index = 0
+    @patent_scopy_by_item.each do |item|
+     # binding.pry
+      article = Article.new
+      article.patent_id = params[:id]
+      article.sentence_id = index+1
+      article.sentence = item 
+	    
+      if article.save 
+      #  flash[:success] = "查詢成功!寫入資料庫成功!"
+      #  redirect_to :back
+      else
+        puts "error occur"
+      end
+	  end
+    redirect_to @patent  
+  end
+  
 
 	def show
 

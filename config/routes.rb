@@ -6,10 +6,17 @@ PatentLookup::Application.routes.draw do
   match '/contact', to: 'welcome#contact', via: 'get'
 
   resources :lookup
-  resources :patents
+  resources :patents do
+    member do
+      get 'slice_sentence'
+    end
+  end
+  
   resources :splitwords
   resources :keywordas
   resources :keywordbs
+  
+  
   
   
 
