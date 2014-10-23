@@ -17,7 +17,7 @@ class PatentsController < ApplicationController
 		@patent.patent_scope = @result
 
 		if @patent.save
-			flash[:success] = "查詢成功!寫入資料庫成功!"
+			#flash[:success] = "查詢成功!寫入資料庫成功!"
 			redirect_to @patent
 		else
 			render 'new'
@@ -47,6 +47,8 @@ class PatentsController < ApplicationController
     redirect_to @patent  
   end
   
+
+
 
 	def show
 
