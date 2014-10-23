@@ -29,10 +29,11 @@ class PatentsController < ApplicationController
     @patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
     index = 0
+    
     @patent_scopy_by_item.each do |item|
      # binding.pry
       article = Article.new
-      article.patent_id = params[:id]
+      article.patent_id = params[:id].to_s
       article.sentence_id = index+1
       article.sentence = item 
 	    

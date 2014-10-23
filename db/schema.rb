@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022093639) do
+ActiveRecord::Schema.define(version: 20141023055629) do
 
   create_table "articles", force: true do |t|
-    t.integer  "patent_id"
+    t.string   "patent_id"
     t.integer  "sentence_id"
     t.string   "sentence"
     t.integer  "parent_id"
