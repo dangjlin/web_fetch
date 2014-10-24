@@ -68,12 +68,15 @@ class PatentsController < ApplicationController
 	  end
     redirect_to @patent  
 
-
-
   end
   
-
-
+  def tree_json
+  
+   # root = Article.find(:first, :conditions => { :parent_id => 0 , :patent_id => params[:id] } ) 
+   # @root = Article.find_by patent_id: params[:id] , parent_id: 0 
+   # @root.to_node
+    
+  end
 
 	def show
 
