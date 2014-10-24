@@ -29,13 +29,35 @@ class PatentsController < ApplicationController
     @patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
     index = 0
-    
+    b = Array.new
+    c = Array.new
+
     @patent_scopy_by_item.each do |item|
      # binding.pry
       article = Article.new
       article.patent_id = params[:id].to_s
-      article.sentence_id = index+1
+      #article.sentence_id = index+1
       article.sentence = item 
+
+      b.clear
+      c.clear
+          if (item.index("<td class=\"rectd2\">")) == 0 
+            b = item.slice(19..item.length).scan(/\d+/)
+          else
+            b = item.scan(/\d+/)
+          end
+
+         # binding.pry
+
+          if b.size >=2           
+            article.child_id = b[0]
+            article.parent_id = b[1] 
+            article.sentence_id = b[0]
+          else 
+            article.child_id = "no_child"
+            article.parent_id = "no_parent"
+            article.sentence_id = b[0]
+          end        
 	    
       if article.save 
       #  flash[:success] = "查詢成功!寫入資料庫成功!"
@@ -45,6 +67,9 @@ class PatentsController < ApplicationController
       end
 	  end
     redirect_to @patent  
+
+
+
   end
   
 
