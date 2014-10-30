@@ -107,15 +107,33 @@ module PatentsHelper
             if b.size >= 2 
               @h[:"#{b[1]}"] << b[0]
             end
-           #binding.pry  
+          
             independent << b[0]
+        #   binding.pry  
   #      end 
   #    end
       independent.uniq
   # Nested set model          
     end
 #  binding.pry  
+#json = build_tree(@h.keys[0], @h)
   end
+
+  def build_entire_tree(first_key, h)
+
+  end
+
+
+  def build_tree(id, src)
+    child_array = src[:"#{id}"]
+  #  @index+=1
+    return { name: id } if child_array.empty? 
+  #  binding.pry
+    #children = child_array
+    { name: id, children: child_array.map { |child_id| build_tree(child_id.to_s, src) } }
+  end
+
+  
 
 def relationship_parent
     

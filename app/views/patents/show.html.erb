@@ -85,4 +85,20 @@
 </div>
 <div class="col-md-4">
 </div>
-<ul>
+</ul> 
+
+<br> 
+    <div>
+      <hr>
+      <% @show_index = @parent.select {|k,v| v.empty? } %> 
+      <%# binding.pry %>
+      <% @show_index.keys.each do |root| %> 
+      <%# binding.pry %>
+      <%# build_tree(@h.keys[0].to_s, @h) %> 
+     
+      <%= build_tree(root.to_s, @h) %>
+      <br>
+      <% end %> 
+      
+      <%# build_entire_tree(@h.keys[0].to_s, @h) %>
+    </div>
