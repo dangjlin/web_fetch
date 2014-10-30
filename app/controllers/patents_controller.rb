@@ -73,9 +73,21 @@ class PatentsController < ApplicationController
   def json_tree
     @patent = Patent.friendly.find(params[:id])
 		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
-    
+  
+    @abc = Patent.relationship_parent(@patent_scopy_by_item)
+    @def = Patent.relationship(@patent_scopy_by_item)
+   # binding.pry
+    @show_index = @abc.select {|k,v| v.empty? } 
+
+    @result_hash = []
+      @show_index.keys.each do |root| 
+     # binding.pry
+      @result_hash << build_tree(root.to_s, @def)  
+     # binding.pry    
+      end
+     
     respond_to do |format|
-      format.json { render @json } 
+      format.html { render json: @result_hash  } 
     end
   end
   
@@ -170,7 +182,17 @@ class PatentsController < ApplicationController
 
 	def patent_params
     params.require(:patent).permit(:apply_no, :patent_scope)
-  	end
+  end
+
+
+  def build_tree(id, src)
+    child_array = src[:"#{id}"]
+  #  @index+=1
+    return { name: id } if child_array.empty? 
+  #  binding.pry
+    #children = child_array
+    return { name: id, children: child_array.map { |child_id| build_tree(child_id.to_s, src) } }
+  end
 
 
 end
