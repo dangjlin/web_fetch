@@ -78,7 +78,7 @@ class PatentsController < ApplicationController
       format.json { render @json } 
     end
   end
-  end
+  
 
 	def show
 
