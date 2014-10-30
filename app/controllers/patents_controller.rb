@@ -70,12 +70,14 @@ class PatentsController < ApplicationController
 
   end
   
-  def tree_json
-  
-   # root = Article.find(:first, :conditions => { :parent_id => 0 , :patent_id => params[:id] } ) 
-   # @root = Article.find_by patent_id: params[:id] , parent_id: 0 
-   # @root.to_node
-  
+  def json_tree
+    @patent = Patent.friendly.find(params[:id])
+		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
+    
+    respond_to do |format|
+      format.json { render @json } 
+    end
+  end
   end
 
 	def show
