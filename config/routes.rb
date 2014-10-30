@@ -9,6 +9,7 @@ PatentLookup::Application.routes.draw do
   resources :patents do
     member do
       get 'slice_sentence'
+      get 'tree_json'
     end
   end
   

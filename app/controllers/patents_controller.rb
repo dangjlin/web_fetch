@@ -68,12 +68,17 @@ class PatentsController < ApplicationController
 	  end
     redirect_to @patent  
 
-
-
   end
   
-
-
+  def json_tree
+    @patent = Patent.friendly.find(params[:id])
+		@patent_scopy_by_item = @patent.patent_scope.split("<br>")
+    
+    respond_to do |format|
+      format.json { render @json } 
+    end
+  end
+  end
 
 	def show
 
