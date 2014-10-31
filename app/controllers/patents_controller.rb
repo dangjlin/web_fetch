@@ -87,7 +87,7 @@ class PatentsController < ApplicationController
       end
      
     respond_to do |format|
-      format.html { render json: @result_hash  } 
+      format.json { render json: @result_hash  } 
     end
   end
   

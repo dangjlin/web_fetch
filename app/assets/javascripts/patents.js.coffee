@@ -4,3 +4,8 @@
 jQuery ->
         $('#patents').dataTable
           sPaginationType: "full_numbers"
+      
+      
+
+      
+      
