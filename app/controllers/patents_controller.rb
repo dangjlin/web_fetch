@@ -188,10 +188,10 @@ class PatentsController < ApplicationController
   def build_tree(id, src)
     child_array = src[:"#{id}"]
   #  @index+=1
-    return { name: id } if child_array.empty? 
+    return { "name" => id } if child_array.empty? 
   #  binding.pry
     #children = child_array
-    return { name: id, children: child_array.map { |child_id| build_tree(child_id.to_s, src) } }
+    return { "name" => id, "children" => child_array.map { |child_id| build_tree(child_id.to_s, src) } }
   end
 
 

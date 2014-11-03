@@ -4,6 +4,8 @@ PatentLookup::Application.routes.draw do
   root 'welcome#index'
   match '/about',   to: 'welcome#about',   via: 'get'
   match '/contact', to: 'welcome#contact', via: 'get'
+  get "static_pages/tree"
+  
 
   resources :lookup
   resources :patents do

@@ -101,56 +101,84 @@
     </div>
 <br>
 <hr>
-    <script>  
-      
-    var width = 500,  
-    height = 500;  
-      
-    var tree = d3.layout.tree()  
-        .size([width, height-200])  
-        .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });  
-      
-    var diagonal = d3.svg.diagonal()  
-        .projection(function(d) { return [d.y, d.x]; });  
-      
-    var svg = d3.select("body").append("svg")  
-        .attr("width", width)  
-        .attr("height", height)  
-        .append("g")  
-        .attr("transform", "translate(40,0)");  
-           
-  d3.json("http://dan-first-108350.apne1.nitrousbox.com/patents/101107780-5cbdc2ef-b4ca-4289-8d72-d6cb4eae4bc3/json_tree.json", function(error, root) {  
-      
-        var nodes = tree.nodes(root);  
-        var links = tree.links(nodes);  
-          
-        console.log(nodes);  
-        console.log(links);  
-          
-        var link = svg.selectAll(".link")  
-          .data(links)  
-          .enter()  
-          .append("path")  
-          .attr("class", "link")  
-          .attr("d", diagonal);  
-          
-        var node = svg.selectAll(".node")  
-          .data(nodes)  
-          .enter()  
-          .append("g")  
-          .attr("class", "node")  
-          .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })  
-          
-        node.append("circle")  
-          .attr("r", 4.5);  
-          
-        node.append("text")  
-          .attr("dx", function(d) { return d.children ? -8 : 8; })  
-          .attr("dy", 3)  
-          .style("text-anchor", function(d) { return d.children ? "end" : "start"; })  
-          .text(function(d) { return d.name; });  
-        });  
-      
+    <script type="text/javascript" src="http://dan-first-108350.apne1.nitrousbox.com/patents/101107780-5cbdc2ef-b4ca-4289-8d72-d6cb4eae4bc3/json_tree.json"></script>
+    <script type="text/javascript"> 
+    
+  
+  var Data; // a global
+
+  var treeData = d3.json("http://dan-first-108350.apne1.nitrousbox.com/patents/101107780-5cbdc2ef-b4ca-4289-8d72-d6cb4eae4bc3/json_tree.json", function(json) {
+    Data = json;
+ // visualizeit();
+});
+  
+ // var treeData = read_json() ;
+
+// ************** Generate the tree diagram  *****************
+var margin = {top: 20, right: 120, bottom: 20, left: 120},
+ width = 960 - margin.right - margin.left,
+ height = 500 - margin.top - margin.bottom;
+ 
+var i = 0;
+
+var tree = d3.layout.tree()
+ .size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+ .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+ .attr("width", width + margin.right + margin.left)
+ .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+ .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+root = treeData[0];
+  
+update(root);
+
+function update(source) {
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse(),
+   links = tree.links(nodes);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Declare the nodesâ€¦
+  var node = svg.selectAll("g.node")
+   .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter the nodes.
+  var nodeEnter = node.enter().append("g")
+   .attr("class", "node")
+   .attr("transform", function(d) { 
+    return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeEnter.append("circle")
+   .attr("r", 10)
+   .style("fill", "#fff");
+
+  nodeEnter.append("text")
+   .attr("x", function(d) { 
+    return d.children || d._children ? -13 : 13; })
+   .attr("dy", ".35em")
+   .attr("text-anchor", function(d) { 
+    return d.children || d._children ? "end" : "start"; })
+   .text(function(d) { return d.name; })
+   .style("fill-opacity", 1);
+
+  // Declare the linksâ€¦
+  var link = svg.selectAll("path.link")
+   .data(links, function(d) { return d.target.id; });
+
+  // Enter the links.
+  link.enter().insert("path", "g")
+   .attr("class", "link")
+   .attr("d", diagonal);
+
+}
     </script>  
  
  
