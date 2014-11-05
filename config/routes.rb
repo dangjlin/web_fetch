@@ -11,7 +11,7 @@ PatentLookup::Application.routes.draw do
   resources :patents do
     member do
       get 'slice_sentence'
-      get 'json_tree'
+      get 'json_tree', :defaults => { :format => 'json' }
     end
   end
   
