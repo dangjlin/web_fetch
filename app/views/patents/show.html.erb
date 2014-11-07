@@ -103,13 +103,7 @@
 <hr>
   
     <script type="text/javascript"> 
-
-
-//
-//
-//
 var treeData;
-
 $.ajax({  
  //url: '97146873/json_tree', 
  url: '<%= "#{params[:id]}/json_tree" %>',
@@ -127,10 +121,15 @@ $.ajax({
   });
 
 // ************** Generate the tree diagram  *****************
+  var root_index = 0 ;
+  var root_total_number = treeData.length ;
+
+
 var margin = {top: 20, right: 120, bottom: 20, left: 120},
   width = 1300 - margin.right - margin.left,
   height =1000 - margin.top - margin.bottom;
-  
+
+for(root_index;root_index<root_total_number;root_index++){  
 var i = 0,
   duration = 750,
   root;
@@ -147,7 +146,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-root = treeData[0];
+root = treeData[root_index];
 root.x0 = height / 2;
 root.y0 = 0;
   
@@ -253,7 +252,7 @@ function click(d) {
   }
   update(d);
 }
- 
+  }
 </script>
 
  
