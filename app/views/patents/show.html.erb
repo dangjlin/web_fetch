@@ -126,8 +126,13 @@ $.ajax({
       }  
   });
 
+
 // ************** Generate the tree diagram  *****************
-var margin = {top: 20, right: 120, bottom: 20, left: 120},
+  var root_index = 0;
+  var root_total_number = treeData.length;
+ 
+  for (root_index ; root_index <= root_total_number ; root_index++)  {
+  var margin = {top: 20, right: 120, bottom: 20, left: 120},
   width = 1300 - margin.right - margin.left,
   height =1000 - margin.top - margin.bottom;
   
@@ -147,7 +152,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-root = treeData[0];
+root = treeData[root_index];
 root.x0 = height / 2;
 root.y0 = 0;
   
@@ -168,7 +173,7 @@ function update(source) {
   var node = svg.selectAll("g.node")
     .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
-  // Enter any new nodes at the parent's previous position.
+  // Enter any new nodes at the parent s previous position.
   var nodeEnter = node.enter().append("g")
     .attr("class", "node")
     .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
@@ -197,7 +202,7 @@ function update(source) {
   nodeUpdate.select("text")
     .style("fill-opacity", 1);
 
-  // Transition exiting nodes to the parent's new position.
+  // Transition exiting nodes to the parent s new position.
   var nodeExit = node.exit().transition()
     .duration(duration)
     .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
@@ -213,7 +218,7 @@ function update(source) {
   var link = svg.selectAll("path.link")
     .data(links, function(d) { return d.target.id; });
 
-  // Enter any new links at the parent's previous position.
+  // Enter any new links at the parent s previous position.
   link.enter().insert("path", "g")
     .attr("class", "link")
     .attr("d", function(d) {
@@ -226,7 +231,7 @@ function update(source) {
     .duration(duration)
     .attr("d", diagonal);
 
-  // Transition exiting nodes to the parent's new position.
+  // Transition exiting nodes to the parent s new position.
   link.exit().transition()
     .duration(duration)
     .attr("d", function(d) {
@@ -253,6 +258,8 @@ function click(d) {
   }
   update(d);
 }
+ 
+  }
  
 </script>
 
