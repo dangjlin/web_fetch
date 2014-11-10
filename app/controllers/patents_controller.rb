@@ -106,7 +106,7 @@ class PatentsController < ApplicationController
     @patent.update_attributes(article_total: @patent_scopy_by_item.length) if @patent.article_total == nil 
     
 	end
-
+  
 	def edit
 
 		#@patent = Patent.find(params[:id])
