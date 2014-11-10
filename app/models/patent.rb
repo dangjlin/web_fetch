@@ -1,7 +1,7 @@
 class Patent < ActiveRecord::Base
   
   has_many :articles
- # before_save :update_patent_article_total
+  #before_save :update_patent_article_total
  
 	extend FriendlyId
 	friendly_id :apply_no, use: :slugged 
@@ -99,9 +99,12 @@ class Patent < ActiveRecord::Base
     return { name: id, children: child_array.map { |child_id| build_tree(child_id.to_s, src) } }
   end
 
-def update_patent_article_total
-  scopy_by_item = self.patent_scope.split("<br>")
+# don't know how to use this method
+def update_patent_article_total 
+  if ( self.patent_scope != "") 
+  scopy_by_item = self.patent_scope.split("<br>") 
   self.update_attributes(article_total: scopy_by_item.length) if self.article_total == nil 
+  end
 end
 
 
