@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141023121258) do
+ActiveRecord::Schema.define(version: 20141110014023) do
 
   create_table "articles", force: true do |t|
     t.string   "patent_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141023121258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "article_total"
   end
 
   create_table "splitwords", force: true do |t|

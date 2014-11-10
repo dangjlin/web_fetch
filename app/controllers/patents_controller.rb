@@ -102,6 +102,9 @@ class PatentsController < ApplicationController
     @second_key = Keywordb.where.not('keywordb' => nil).order('priority asc').pluck(:keywordb)
     @patent_scopy_by_item_right = Array.new 
     @repeat_no = Array.new(1,"No.0")
+    
+    @patent.update_attributes(article_total: @patent_scopy_by_item.length) if @patent.article_total == nil 
+    
 	end
 
 	def edit
