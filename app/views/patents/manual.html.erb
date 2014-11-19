@@ -1,0 +1,21 @@
+
+
+
+<h1>專利範圍內包含額外的 LINK 字串，系統無法處理<br>請回專利資訊檢索系統人工處理</h1> 
+<div align='center'><%= link_to "中華民國專利資訊檢索系統", 'http://210.69.13.199/tipotwc/tipotwkm?0002A9C60001000100000000000000100000001E000000000', :target => "_blank" %></div><br>
+<li><%= link_to "繼續查下一筆", new_patent_path %></li>   <li><%= link_to "去歷史查詢列表", patents_path %> </li>
+<li><%= link_to "編輯這一筆查詢，調整fetch的格子數" , edit_patent_path %></li> 
+<table>
+	<tr> 
+		<td> 申請號 </td> <td><%= @patent.apply_no %></td>
+	</tr>
+	<tr>
+		<td>專利範圍</td> <td> </td>
+	</tr>
+</table>
+<ul class ="users"> 
+<% @patent_scopy_by_item.each do |scope_item| %>
+  <li>
+  <%= scope_item  %> 
+</li>
+<% end %>
