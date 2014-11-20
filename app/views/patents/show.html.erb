@@ -1,5 +1,5 @@
 
-<h1> this is the detail lookup page </h1> <br><br>
+<h1>專利申請案號: <%= @patent.apply_no %>  專利範圍 </h1> <br>
 <li><%= link_to "繼續查下一筆", new_patent_path %></li>   <li><%= link_to "去歷史查詢列表", patents_path %> </li>
 <li><%= link_to "編輯這一筆查詢，調整fetch的格子數" , edit_patent_path %></li> 
 <table>
@@ -7,7 +7,7 @@
 		<td> 申請號 </td> <td><%= @patent.apply_no %></td>
 	</tr>
 	<tr>
-		<td>專利範圍</td> <td> </td>
+		<td>專利範圍原始資料</td> <td> </td>
 	</tr>
 </table>
  <% relationship_parent %>
@@ -19,10 +19,10 @@
 <% end %>
 
 <hr>
-<table class='table-bordered'>
+<table class='table-bordered table-hover' >
 <tr>
-	<td> 第一欄位 </td>
-	<td> sub 專利範圍 </td>
+	<td class="col-md-6"> 主要項內容 </td>
+	<td class="col-md-6"> 附屬項內容 </td>
 </tr>
 	<% @patent_scopy_by_item.each do |item| %>
 	<tr class="<%= column_color(item) %>">
@@ -102,7 +102,7 @@
 <br>
 <hr>
   
-    <script type="text/javascript"> 
+<script type="text/javascript"> 
 var treeData;
 $.ajax({  
  //url: '97146873/json_tree', 
