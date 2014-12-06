@@ -143,34 +143,27 @@ class PatentsController < ApplicationController
 		agent = Mechanize.new
 		page = agent.get("http://210.69.13.40/tipotwoc/tipotwkm")
 		#page = agent.get("http://twpat.tipo.gov.tw/tipotwoc/tipotwkm")
-
-
 		page = agent.page.link_with(:text => "專利檢索").click
-
 		form = agent.page.forms.first
-
 		#設定下拉式選單到正確的選項 value
 		form._1_0_n_1 = "n_AN"
-
 		#設定 input box 裡面要查詢的值
 		#form._1_0_n_2 = "99106886"
 		form._1_0_n_2 = "#{apply_key}"
-
-		#puts apply_key
-
 		#按下查詢的按鈕
 		result_page = form.submit(form.button_with(:name => "_IMG_檢索@s"))
 
 		#按下“專利範圍”的連結
-
+     
 		if !(result_page.links_with(:text => "")[3].href.match(/^http:\/\/twpat/) )
 			@result = "查無此專利案"
 		else
 		result_page2 = result_page.links_with(:text => "")[3].click
 		page_html = Nokogiri::HTML.parse(result_page2.parser.to_html)
-      
+     
      while fetch_key >=0 do
-		@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
+	#@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
+   @result = page_html.xpath("/html/body/form/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
       #binding.pry
       if @result == "" 
         fetch_key -= 1 
@@ -179,7 +172,7 @@ class PatentsController < ApplicationController
       end  # if statement end 
      end   # while loop end
     end # if statement end
-
+  # binding.pry 
 
     end # method end 
 
