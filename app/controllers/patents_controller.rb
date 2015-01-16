@@ -161,7 +161,7 @@ class PatentsController < ApplicationController
 		result_page2 = result_page.links_with(:text => "")[2].click
 		page_html = Nokogiri::HTML.parse(result_page2.parser.to_html)
 
-     while fetch_key >=0 do
+     while fetch_key.to_i >=0 do
 	#@result = page_html.xpath("html/body/form/table/tr[2]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
    @result = page_html.xpath("/html/body/form/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[3]/td/table/tr/td/table/tr[2]/td/table/tr/td[1]/div/table/tr[#{fetch_key}]/td[2]").to_s
       #binding.pry

@@ -1,7 +1,8 @@
 class Patent < ActiveRecord::Base
-  
+  validates_numericality_of :apply_no
   has_many :articles
   #before_save :update_patent_article_total
+  
  
 	extend FriendlyId
 	friendly_id :apply_no, use: :slugged 

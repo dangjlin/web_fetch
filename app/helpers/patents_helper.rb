@@ -84,6 +84,8 @@ module PatentsHelper
     independent = Array.new
     b = Array.new
     c = Array.new
+    
+    #binding.pry
 
     @patent_scopy_by_item.each do |item|
       b.clear
@@ -103,13 +105,12 @@ module PatentsHelper
           end
 
           # 開始增加獨立項的編號作為 hash 的 key 值 
-            @h[:"#{b[0]}"] = %w()
             if b.size >= 2 
               @h[:"#{b[1]}"] << b[0]
             end
           
             independent << b[0]
-        #   binding.pry  
+           #binding.pry  
   #      end 
   #    end
       independent.uniq
@@ -164,7 +165,7 @@ def relationship_parent
             if d.size >= 2 
                 @parent[:"#{d[0]}"] << d[1]
             end
-           #binding.pry  
+         #  binding.pry  
 
          
          
