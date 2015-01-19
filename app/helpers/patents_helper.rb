@@ -93,7 +93,7 @@ module PatentsHelper
  #     @first_key.each do |match_key| 
  #       if ( item.index("#{match_key}") == 3 ) || ( item.index("#{match_key}") == 4 ) 
 
-        # 用來抓出從屬項的兩組數字，第一個是自身編號，第二個其繼承的獨立項編號
+        # 用來抓出從屬項的兩組數i字，第一個是自身編號，第二個其繼承的獨立項編號
  #       c = item.scan(/\d+/)
  #       h[:"#{c[1]}"] << [c[0]]       
  #     break
@@ -110,13 +110,13 @@ module PatentsHelper
             end
           
             independent << b[0]
-           #binding.pry  
+           binding.pry  
   #      end 
   #    end
       independent.uniq
   # Nested set model          
     end
-#  binding.pry  
+ # binding.pry  
 #json = build_tree(@h.keys[0], @h)
   end
 
