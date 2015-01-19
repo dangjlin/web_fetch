@@ -130,8 +130,12 @@ class PatentsController < ApplicationController
 
 	end
 
-	def delete
-	end
+
+   def destroy
+     @patent = Patent.friendly.find(params[:id])
+     @patent.destroy
+     redirect_to patents_path, alert: "此申請案查詢已刪除"
+  end
 
   	def return_patent_scope(apply_key,fetch_key)
 		require 'rubygems'

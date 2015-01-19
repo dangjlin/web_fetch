@@ -1,6 +1,6 @@
 class Patent < ActiveRecord::Base
   validates_numericality_of :apply_no
-  has_many :articles
+  has_many :articles, dependent: :destroy
   #before_save :update_patent_article_total
   
  

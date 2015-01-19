@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  belongs_to :patent
+  belongs_to :patent, dependent: :destroy
   
   
 end

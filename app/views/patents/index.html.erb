@@ -16,6 +16,7 @@
        <td><%= patent.created_at %> </td>
       <td><%= link_to( "句子寫進資料庫", slice_sentence_patent_path(patent)) %> </td>
       <td><%= link_to( "切Json file" , json_tree_patent_path(patent) )  %> </td> 
+      <td><%= link_to("Delete", patent_path(patent), method: :delete, data: { confirm: "Are you sure?" } )%>
     </tr>
     <% end %>
 
