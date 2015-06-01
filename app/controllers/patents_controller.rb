@@ -135,9 +135,9 @@ class PatentsController < ApplicationController
      @patent = Patent.friendly.find(params[:id])
      @patent.destroy
      redirect_to patents_path, alert: "此申請案查詢已刪除"
-  end
+   end
 
-  	def return_patent_scope(apply_key,fetch_key)
+def return_patent_scope(apply_key,fetch_key)
 		require 'rubygems'
 		require 'nokogiri'
 		#require 'open-uri'
@@ -145,9 +145,9 @@ class PatentsController < ApplicationController
 		require 'mechanize'
 
 		agent = Mechanize.new
-		page = agent.get("http://210.69.13.40/tipotwoc/tipotwkm")
+		page = agent.get("http://210.69.13.42/tipotwoc/tipotwkm")
 		#page = agent.get("http://twpat.tipo.gov.tw/tipotwoc/tipotwkm")
-		page = agent.page.link_with(:text => "專利檢索").click
+		page = agent.page.link_with(:text => "簡易檢索").click
 		form = agent.page.forms.first
 		#設定下拉式選單到正確的選項 value
 		form._1_0_n_1 = "n_AN"
@@ -159,9 +159,9 @@ class PatentsController < ApplicationController
 
 		#按下“專利範圍”的連結
 
-		if !(result_page.links_with(:text => "")[3].href.match(/^http:\/\/twpat/) )
+	if !(result_page.links_with(:text => "")[3].href.match(/^http:\/\/twpat/) )
 			@result = "查無此專利案"
-		else
+	else
 		result_page2 = result_page.links_with(:text => "")[2].click
 		page_html = Nokogiri::HTML.parse(result_page2.parser.to_html)
 
@@ -174,10 +174,10 @@ class PatentsController < ApplicationController
         break
       end  # if statement end
      end   # while loop end
-    end # if statement end
+  end # if statement end
   # binding.pry
 
-    end # method end
+end # method end
 
 
 
