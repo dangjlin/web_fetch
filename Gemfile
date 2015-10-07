@@ -53,6 +53,9 @@ gem 'omniauth-facebook'
 # Use Figaro manage auth_key & auth_secret
 gem 'figaro'
 
+gem 'whenever'
+
+gem 'rake'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

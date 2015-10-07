@@ -1,0 +1,39 @@
+CV 
+上午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0401&SecName=%E5%BF%83%E8%87%9F%E8%A1%80%E7%AE%A1%E5%85%A7%E7%A7%91&chOp0Time=1
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=1&secno=0401&chop0clmdocid=61581&chregdate=#{today_date}&chregroom=#{room}
+下午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0401&SecName=%E5%BF%83%E8%87%9F%E8%A1%80%E7%AE%A1%E5%85%A7%E7%A7%91&chOp0Time=2
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=2&secno=0401&chop0clmdocid=67116&chregdate=#{today_date}&chregroom=#{room}
+晚上 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0401&SecName=%E5%BF%83%E8%87%9F%E8%A1%80%E7%AE%A1%E5%85%A7%E7%A7%91&chOp0Time=3
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=3&secno=0401&chop0clmdocid=89754&chregdate=#{today_date}&chregroom=#{room}
+
+META
+上午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0203&SecName=%E6%96%B0%E9%99%B3%E4%BB%A3%E8%AC%9D%E7%A7%91&chOp0Time=1
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=1&secno=0203&chop0clmdocid=42522&chregdate=#{today_date}&chregroom=#{room}
+下午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0203&SecName=%E6%96%B0%E9%99%B3%E4%BB%A3%E8%AC%9D%E7%A7%91&chOp0Time=2
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=2&secno=0203&chop0clmdocid=61003&chregdate=#{today_date}&chregroom=#{room}
+晚上 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0203&SecName=%E6%96%B0%E9%99%B3%E4%BB%A3%E8%AC%9D%E7%A7%91&chOp0Time=3
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=3&secno=0203&chop0clmdocid=54570&chregdate=#{today_date}&chregroom=#{room}
+
+NEURO
+上午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0206&SecName=%E7%A5%9E%E7%B6%93%E5%85%A7%E7%A7%91&chOp0Time=1
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=1&secno=0206&chop0clmdocid=00627&chregdate=#{today_date}&chregroom=#{room}
+下午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0206&SecName=%E7%A5%9E%E7%B6%93%E5%85%A7%E7%A7%91&chOp0Time=2
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=2&secno=0206&chop0clmdocid=89828&chregdate=#{today_date}&chregroom=#{room}
+晚上 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0206&SecName=%E7%A5%9E%E7%B6%93%E5%85%A7%E7%A7%91&chOp0Time=3
+N/A
+
+Family HOSPITAL
+上午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0292&SecName=%E5%AE%B6%E5%BA%AD%E9%86%AB%E5%AD%B8%E7%A7%91&chOp0Time=1
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=1&secno=0292&chop0clmdocid=89827&chregdate=#{today_date}&chregroom=#{room}
+下午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0292&SecName=%E5%AE%B6%E5%BA%AD%E9%86%AB%E5%AD%B8%E7%A7%91&chOp0Time=2
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=2&secno=0292&chop0clmdocid=91241&chregdate=#{today_date}&chregroom=#{room}
+晚上 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0292&SecName=%E5%AE%B6%E5%BA%AD%E9%86%AB%E5%AD%B8%E7%A7%91&chOp0Time=3
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=3&secno=0292&chop0clmdocid=90431&chregdate=#{today_date}&chregroom=#{room}
+
+Nephrology
+上午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0205&SecName=%E8%85%8E%E8%87%9F%E5%85%A7%E7%A7%91&chOp0Time=1
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=1&secno=0205&chop0clmdocid=61636&chregdate=#{today_date}&chregroom=#{room}
+下午 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0205&SecName=%E8%85%8E%E8%87%9F%E5%85%A7%E7%A7%91&chOp0Time=2
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=2&secno=0205&chop0clmdocid=61636&chregdate=#{today_date}&chregroom=#{room}
+晚上 http://www.femh.org.tw/visit/visit.aspx?Action=9_1&MenuType=0&secno=0205&SecName=%E8%85%8E%E8%87%9F%E5%85%A7%E7%A7%91&chOp0Time=3
+http://www.femh.org.tw/visit/visit.aspx?Action=9_2&MenuType=0&chOp0Time=3&secno=0205&chop0clmdocid=89745&chregdate=#{today_date}&chregroom=#{room}

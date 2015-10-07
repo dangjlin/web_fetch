@@ -26,4 +26,7 @@ PatentLookup::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  
+  require File.expand_path(File.dirname(__FILE__) + "/environment")
 end
