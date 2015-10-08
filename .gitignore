@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 .powenv
+/.c9
+./.c9

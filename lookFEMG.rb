@@ -25,7 +25,7 @@ def print_data(page_html)
 	  
 	  records = "#{check_date},#{check_type},#{doc_name},#{patient_numbers_string},#{patient_numbers_only},#{time_slot},#{room_no}\n"
 	  
-	  File.open('look_result_Oct', 'a') { |file| file.write("#{records}") }
+	  File.open('look_result_October', 'a') { |file| file.write("#{records}") }
 	  
 end		
 	

@@ -6,10 +6,11 @@
 # Example:
 #
 #  set :output, "log/cron_log.log"
+  set :output, { error: 'log/cron_error.log' }
   
-#  every 2.minutes do 
-#      rake "FEMG:get_FEMG_data"
-#  end
+  every 1.day, :at => '3:00 pm' do 
+      rake "FEMG:get_FEMG_data"
+  end
   
 
 #
@@ -24,6 +25,3 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
-
-
