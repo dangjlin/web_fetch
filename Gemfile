@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
-
+gem 'rails', '4.2'
+gem 'test-unit'
 # Use Bootstrap from Twitter Framework
 gem 'bootstrap-sass', '>=2.3.2.0'
 
@@ -53,6 +53,9 @@ gem 'omniauth-facebook'
 # Use Figaro manage auth_key & auth_secret
 gem 'figaro'
 
+gem 'whenever'
+
+gem 'rake'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
