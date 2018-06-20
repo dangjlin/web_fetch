@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.3.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
@@ -8,7 +8,8 @@ gem 'rails', '4.0.1'
 gem 'bootstrap-sass', '>=2.3.2.0'
 
 # use password hash cryption module 
-gem 'bcrypt-ruby', '>=3.0.1'
+# gem 'bcrypt-ruby', '>=3.0.1'
+gem 'bcrypt'
 
 # use web crawler nokogiri 
 gem 'nokogiri', '1.6.3.1'
